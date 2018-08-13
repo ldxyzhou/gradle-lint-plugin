@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    // gradle sdk
+    compile gradleApi()
+    // groovy sdk
+    compile localGroovy()
+    // 可以引用其它库
+    compile fileTree(dir: 'libs'2 include: ['*.jar'])
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //本地的Maven地址
+            repository(url: 'file:///Users/xinyu/work/maven-lib/')
+        }
+    }
+}
+
+group='com.zxy.plugin'
+version='1.0.0'
